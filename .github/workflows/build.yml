@@ -23,15 +23,15 @@ jobs:
 
     steps:
     - name: Checkout NodeInject 
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       with:
         repository: DiamondHunters/NodeInject
     - name: Checkout repository 
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       with:
           path: './js'
     - name: Install Rust
-      uses: actions-rs/toolchain@v4
+      uses: actions-rs/toolchain@v3
       with:
         toolchain: ${{ matrix.rust }}
         profile: minimal
@@ -67,7 +67,7 @@ jobs:
           tar -czf "${{ matrix.archive-name }}" LICENSE README.md node_inject license-gen
         fi
     - name: Upload archive
-      uses: actions/upload-artifact@v4
+      uses: actions/upload-artifact@v3
       with:
         name: ${{ matrix.archive-name }}
         path: archive/${{ matrix.archive-name }}
